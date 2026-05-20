@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POF Verification H5 Demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <main class="page">
+    <section class="card">
+      <div class="topbar">
+        <span>POF VERIFICATION</span>
+        <span id="statusBadge" class="idle">未检测</span>
+      </div>
+
+      <h1>人脸验证</h1>
+
+      <p class="desc">
+        请上传 POI 照片和 10MB 以内 MP4 视频，系统将进行质量检测、活体检测与人脸比对。
+      </p>
+
+      <div class="form-group">
+        <label for="apiUrl">API 地址</label>
+        <input id="apiUrl" type="text" value="http://localhost:8000" />
+      </div>
+
+      <div class="form-group">
+        <label for="userId">用户 ID</label>
+        <input id="userId" type="text" value="user_12345" />
+      </div>
+
+      <div class="form-group">
+        <label for="scenario">模拟场景</label>
+        <select id="scenario">
+          <option value="approved">验证通过</option>
+          <option value="manual_review">人工审核</option>
+          <option value="rejected">验证失败</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="poiImageFile">POI 照片</label>
+        <label class="upload-box" for="poiImageFile">
+          <strong>选择或拍摄 POI 照片</strong>
+          <span id="poiImageName">未选择照片</span>
+        </label>
+        <input
+          id="poiImageFile"
+          class="hidden"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="videoFile">POF 视频</label>
+        <label class="upload-box" for="videoFile">
+          <strong>选择或拍摄 MP4 视频</strong>
+          <span id="fileName">未选择视频</span>
+        </label>
+        <input
+          id="videoFile"
+          class="hidden"
+          type="file"
+          accept="video/mp4"
+        />
+      </div>
+
+      <div class="actions">
+        <button id="healthBtn" type="button" class="secondary">
+          健康检查
+        </button>
+
+        <button id="verifyBtn" type="button" class="primary">
+          提交验证
+        </button>
+      </div>
+
+      <section id="result" class="result hidden"></section>
+    </section>
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
