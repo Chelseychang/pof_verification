@@ -32,23 +32,82 @@
       </div>
 
       <div class="form-group">
-        <label for="brand">品牌</label>
-        <select id="brand">
+        <label for="brand" class="section-label">
+          品牌配置
+        </label>
+
+        <select id="brand" class="modern-select">
           <option value="default">Default</option>
           <option value="vantage">Vantage</option>
-          <option value="brand_a">Vantage UK</option>
+          <option value="brand_a">Brand A</option>
         </select>
       </div>
 
-      <select id="scenario">
-        <option value="auto">真实人脸比对</option>
-        <option value="approved">验证通过</option>
-        <option value="manual_review">人工审核</option>
-        <option value="quality_failed">视频质量不合格</option>
-        <option value="liveness_failed">活体检测失败</option>
-        <option value="face_mismatch">人脸不匹配</option>
-        <option value="attribute_mismatch">性别/年龄不匹配</option>
-      </select>
+      <div class="form-group">
+        <label for="scenario" class="section-label demo-label">
+          Demo 演示场景验证
+        </label>
+
+       <div class="form-group">
+        <label class="section-label">
+          验证模式
+        </label>
+
+        <div class="mode-group">
+
+          <label class="mode-card">
+            <input type="radio" name="verifyMode" value="auto" checked/>
+
+            <div class="mode-content">
+              <div class="mode-title">
+                真实 AI 验证
+              </div>
+
+              <div class="mode-desc">
+                使用 OCR + InsightFace 实际检测证件与视频人脸。
+              </div>
+            </div>
+          </label>
+
+          <label class="mode-card">
+            <input type="radio" name="verifyMode" value="demo"/>
+
+            <div class="mode-content">
+              <div class="mode-title">
+                Demo 场景验证
+              </div>
+
+              <div class="mode-desc">
+                使用 Mock 数据模拟审核结果。
+              </div>
+            </div>
+          </label>
+
+        </div>
+
+      </div>
+
+        <div class="form-group" id="demoScenarioWrapper" style="display:none;" >
+          <label class="section-label">
+            Demo 演示场景
+          </label>
+
+          <select id="scenario" class="modern-select">
+
+            <option value="approved">验证通过</option>
+            <option value="manual_review">人工审核</option>
+            <option value="quality_failed">视频质量不合格</option>
+            <option value="liveness_failed">活体检测失败</option>
+            <option value="face_mismatch">人脸不匹配</option>
+            <option value="attribute_mismatch">性别/年龄不匹配</option>
+          </select>
+
+          <p class="demo-tip">
+            用于演示不同审核结果，不影响真实 AI 人脸比对。
+          </p>
+        </div>
+
+      </div>
 
       <div class="form-group">
         <label for="poiImageFile">POI 照片</label>

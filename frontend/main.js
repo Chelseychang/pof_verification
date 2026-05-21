@@ -2,6 +2,26 @@ import { POFClient, getDecisionMessage } from './sdk/pof-sdk.js';
 
 const $ = (id) => document.getElementById(id);
 
+const modeRadios = document.querySelectorAll(
+  'input[name="verifyMode"]'
+);
+
+modeRadios.forEach((radio) => {
+
+  radio.addEventListener('change', () => {
+
+    const selected = document.querySelector(
+      'input[name="verifyMode"]:checked'
+    ).value;
+
+    $('demoScenarioWrapper').style.display =
+      selected === 'demo'
+        ? 'block'
+        : 'none';
+  });
+
+});
+
 const resultEl = $('result');
 const statusBadge = $('statusBadge');
 
@@ -79,7 +99,12 @@ $('verifyBtn').addEventListener('click', async () => {
     const result = await client.verify({
       userId: $('userId').value.trim(),
       brand: $('brand').value,
-      scenario: $('scenario').value,
+      scenario:
+        document.querySelector(
+          'input[name="verifyMode"]:checked'
+        ).value === 'auto'
+          ? 'auto'
+          : $('scenario').value,
       videoFile: selectedVideoFile,
       poiImageFile: selectedPoiImageFile
     });
