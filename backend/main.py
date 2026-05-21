@@ -586,6 +586,7 @@ async def verify_pof(
     validate_poi_image(poi_image, image_bytes)
 
     similarity = None
+    poi_face = None
 
     if scenario == "auto":
 
