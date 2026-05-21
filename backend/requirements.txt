@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+numpy
+opencv-python
+onnxruntime
+insightface
+pytesseract
+pillow
+#paddleocr
+#paddlepaddle
