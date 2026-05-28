@@ -189,8 +189,6 @@ def extract_document_info_from_poi(image_bytes: bytes):
         int(w * 0.05):int(w * 0.98)
     ]
 
-    cv2.imwrite("debug_crop.jpg", crop)
-
     gray = cv2.cvtColor(crop, cv2.COLOR_RGB2GRAY)
 
     gray = cv2.resize(
